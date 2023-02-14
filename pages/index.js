@@ -4,7 +4,11 @@ import Layout from 'components/layout'
 const Home = () => {
   return (
     <>
-      <Hero />
+      <Hero
+        title='CUBE'
+        subtitle='OUTPUT'
+        imgOn
+      />
     </>
   )
 }

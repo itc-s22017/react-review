@@ -1,8 +1,9 @@
-const Hero = () => {
+const Hero = ({ title, subtitle, imgOn = false }) => {
   return (
     <div>
-      <h1>CUBE</h1>
-      <p>OUTPUT</p>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+      {imgOn && <figure>[Image]</figure>}
     </div>
   )
 }
