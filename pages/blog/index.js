@@ -6,7 +6,7 @@ const Blog = () => {
   return (
     <>
       <Container>
-        <Meta pageTitle='Blog' />
+        <Meta pageTitle='Blog' pageDesc='Blog Lists' />
         <Hero
           title='BLOG'
           subtitle='RECENT POST'

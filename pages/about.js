@@ -11,7 +11,13 @@ const About = () => {
   return (
     <>
       <Container>
-        <Meta pageTitle='アバウト' />
+        <Meta
+          pageTitle='アバウト'
+          pageDesc='About development Activities!!'
+          pageImg={eyecatch.src}
+          pageImgW={eyecatch.width}
+          pageImgH={eyecatch.height}
+        />
         <Hero
           title='ABOUT'
           subtitle='About development ......'
