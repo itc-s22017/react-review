@@ -1,14 +1,16 @@
 import Hero from 'components/hero'
-import Layout from 'components/layout'
+import Container from 'components/container'
 
 const Home = () => {
   return (
     <>
-      <Hero
-        title='CUBE'
-        subtitle='OUTPUT'
-        imgOn
-      />
+      <Container>
+        <Hero
+          title='CUBE'
+          subtitle='OUTPUT'
+          imgOn
+        />
+      </Container>
     </>
   )
 }
