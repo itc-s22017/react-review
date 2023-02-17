@@ -10,8 +10,10 @@ import { extractText } from 'lib/extract-text'
 import Meta from 'components/meta'
 import { eyecatchLocal } from 'lib/constans'
 import { getPlaiceholder } from 'plaiceholder'
+import { prevNextPost } from 'lib/prev-next-post'
+import Pagination from 'components/pagination'
 
-const Post = ({ title, publish, content, eyecatch, categories, desc }) => {
+const Post = ({ title, publish, content, eyecatch, categories, desc, prevPost, nextPost }) => {
   return (
     <Container>
       <Meta
@@ -20,7 +22,6 @@ const Post = ({ title, publish, content, eyecatch, categories, desc }) => {
         pageImg={eyecatch.url}
         pageImgW={eyecatch.width}
         pageImgH={eyecatch.heght}
-
       />
       <PostHeader title={title} subtitle='blog article' publish={publish} />
       <figure>
@@ -46,6 +47,14 @@ const Post = ({ title, publish, content, eyecatch, categories, desc }) => {
           <PostCategories categories={categories} />
         </TwoColumnSidebar>
       </TwoColumn>
+
+      <Pagination
+        prevText={prevPost.title}
+        prevUrl={prevPost.slug}
+        nextText={nextPost.title}
+        nextUrl={nextPost.slug}
+      />
+
     </Container>
   )
 }
@@ -71,6 +80,9 @@ export const getStaticProps = async (context) => {
   const { base64 } = await getPlaiceholder(eyecatch.url)
   eyecatch.blurDataURL = base64
 
+  const all = await getAllSlugs()
+  const [prevPost, nextPost] = prevNextPost(all, slug)
+
   return {
     props: {
       title: post.title,
@@ -78,7 +90,9 @@ export const getStaticProps = async (context) => {
       content: post.content,
       eyecatch,
       categories: post.categories,
-      desc
+      desc,
+      prevPost,
+      nextPost
     }
   }
 }
