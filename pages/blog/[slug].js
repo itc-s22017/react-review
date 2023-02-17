@@ -26,6 +26,7 @@ const Post = ({ title, publish, content, eyecatch, categories, desc, prevPost, n
       <PostHeader title={title} subtitle='blog article' publish={publish} />
       <figure>
         <Image
+          key={eyecatch.url}
           src={eyecatch.url}
           alt=''
           style={{ width: '100%', height: 'auto' }}
